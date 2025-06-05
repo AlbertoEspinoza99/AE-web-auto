@@ -1,6 +1,7 @@
 package rimac.test.stepsdefinition.rodolfo;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 import rimac.test.task.emisionVidaLeyGrupo_Corporativo.DatosParticularesTask;
 import rimac.test.task.emisionVidaLeyGrupo_Corporativo.PlanCoberturas_Corporativo_Task;
 
@@ -25,6 +26,31 @@ public class PolizaVidaLeyGrupo_Corporativo_Def {
                 DatosParticularesTask.DT(tipoVigencia,PrimaMinEmision,PrimaMinEndoso,SueldoAsegurable)
         );
     }
+
+
+    @And("^renovamos vigencia la poliza del producto (.*) con estadoInicial (.*)$")
+    public void renovacionesPoliza(String producto,String estadoInicial){
+
+
+    }
+
+
+    @And("^registramos la planilla de asegurados del producto (.*) con estado (.*)$")
+    public void registroPlanillaAsegurado(String producto,String estado){
+
+    }
+
+
+    @Then("^validamos que el estadoTransferencia (.*) del TipoMovimiento (.*) de la pestana del historial de movimientos$")
+    public void estadoHistorialMovimiento(String estadoTransferencia,String TipoMovimiento){
+
+    }
+
+
+
+
+
+
 
 
 }

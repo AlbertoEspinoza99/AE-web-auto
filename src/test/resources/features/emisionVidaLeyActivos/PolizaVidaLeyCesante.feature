@@ -5,7 +5,7 @@ Feature: generacion poliza vida ley cesante
   Background:
     Given ingreso a la aplicacion web de SAS
 
-  @Scenario22_01 #@SASoci
+  @Scenario22 #@SASoci
   Scenario Outline:  generar cotizacion
     When estoy logeado e ingreso en la opción "Acuerdos" --> "Transacciones" --> "Emisión Vida Ley" --> "Registrar Cotización"
     And en la sección datos de cabecera se ingrese rol <rol> , Canal <canal> , Grupo <grupo>, Producto <producto>, Moneda <moneda>
@@ -24,15 +24,5 @@ Feature: generacion poliza vida ley cesante
       | DIRECTO    | SEGUROS DIRECTOS | VIDA LEY | Vida Ley Cesantes| NUEVOS SOLES | [171489] - Plan Cesantes Nueva Ley |     10000       |        50000    |  50000          |DNI           | 70055294        |  RUC  |20549805401 |     8000         |POR APROBAR|    APROBADA    | GENERAR PÓLIZA  | Activo   | Emitida | TRANSFERIDO OK|
 
 
-  #@Scenario22_02
-  #Scenario Outline: emision poliza
-    #When estoy logeado e ingreso en la opción "Acuerdos" --> "Transacciones" --> "Emisión Vida Ley" --> "Mantenimiento Póliza"
-    #And Nos dirigimos a la opcion de Mantenimiento Poliza y consultamos la poliza
-    #And agregamos una sucursal tramite <tramite>,tipoProducto <tipoProducto>
-    #Then validamos que la poliza este en estado transferida <transferidad>
-    #And validamos que la poliza en acsele en estado cotizada <cotizada>
 
-    #Examples:
-     # |tramite| transferidad   | cotizada | tipoProducto|
-     # | 153   | TRANSFERIDO OK |  Cotizada|    VG       |
 
