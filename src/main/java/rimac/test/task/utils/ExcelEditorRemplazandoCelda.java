@@ -13,9 +13,9 @@ import java.nio.file.Paths;
 
 public class ExcelEditorRemplazandoCelda {
 
-    public static void reemplazarSucursal(String nuevoValor,String valor) throws Exception {
+    public static void reemplazarSucursal(String nuevoValor,String valor,String rutaAbsolutarutaExcel) throws Exception {
 
-        String rutaAbsolutarutaExcel= Paths.get("src/test/resources/archivos","VL DNI valido - VL.xlsx").toAbsolutePath().toString();
+       // String rutaAbsolutarutaExcel= Paths.get("src/test/resources/archivos","VL DNI valido - VL.xlsx").toAbsolutePath().toString();
 
 
         FileInputStream file = new FileInputStream(new File(rutaAbsolutarutaExcel));

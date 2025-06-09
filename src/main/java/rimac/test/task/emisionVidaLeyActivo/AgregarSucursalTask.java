@@ -97,9 +97,10 @@ public class AgregarSucursalTask implements Task {
 
         escribirJson(data,"NumeroSucursal");
         String sucursal = UtilApp.getJsonValue("src/test/resources/jsonData/NumeroSucursal.json","$['Cod_sucursal']");
+        String rutaAbsolutarutaExcel= Paths.get("src/test/resources/archivos","VL DNI valido - VL.xlsx").toAbsolutePath().toString();
 
         try {
-            ExcelEditorRemplazandoCelda.reemplazarSucursal(sucursal,tipoProducto);
+            ExcelEditorRemplazandoCelda.reemplazarSucursal(sucursal,tipoProducto,rutaAbsolutarutaExcel);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -117,7 +118,7 @@ public class AgregarSucursalTask implements Task {
                 WaitUntil.the(PATH_CARGANDO, WebElementStateMatchers.isNotVisible()).forNoMoreThan(300).seconds(),
                 Pause.withDuration(4)
 
-                );
+        );
 
                String rutaAbsoluta= Paths.get("src/test/resources/archivos","VL DNI valido - VL.xlsx").toAbsolutePath().toString();
 
@@ -155,7 +156,7 @@ public class AgregarSucursalTask implements Task {
                         Pause.withDuration(6),
                         WaitUntil.the(ValidacionFinalUI.DIV_VALIDACION_ESTADO,isVisible()).forNoMoreThan(20).seconds()
 
-                        );
+                );
 
     }
 

@@ -36,7 +36,7 @@ public class BusquedaTask implements Task {
                 PegadoJS.pegar(BusquedaPolizaUI.INPUT_NUMERO_POLIZA,numeroPolizaOficial),
                 JavaScriptClick.on(BusquedaPolizaUI.BTN_BUSCAR_POLIZA),
                 WaitUntil.the(PATH_CARGANDO, WebElementStateMatchers.isNotVisible()).forNoMoreThan(500).seconds(),
-                Pause.withDuration(80)
+                Pause.withDuration(2)
         );
 
 
