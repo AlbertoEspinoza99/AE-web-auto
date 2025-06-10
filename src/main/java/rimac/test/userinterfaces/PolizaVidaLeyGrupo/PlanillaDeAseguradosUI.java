@@ -47,7 +47,7 @@ public class PlanillaDeAseguradosUI {
 
 
     public static final Target BTN_SALIR_EDITAR=Target.the("BTN_SALIR_EDITAR")
-            .located(By.xpath("(//button[contains(text(),'Salir')])[1]"));
+            .located(By.xpath("//span[contains(text(),'Historial Movimientos')]"));
 
 
     // otros

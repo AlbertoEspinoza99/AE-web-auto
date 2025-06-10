@@ -49,13 +49,15 @@ public class InclusionExclusionCertificadoTask implements Task {
     public <T extends Actor> void performAs(T actor) {
 
         String ValorDinamico = Paths.get("src/test/resources/archivos","VL DNI valido - VL.xlsx").toAbsolutePath().toString();;
-        String rutaAbsolutarutaExcelEmision= Paths.get("src/test/resources/archivos","VL DNI valido - VL.xlsx").toAbsolutePath().toString();
+        String rutaAbsolutarutaExcelEmision= Paths.get("src/test/resources/archivos","VL inclusion - VL.xlsx").toAbsolutePath().toString();
         String rutaAbsolutarutaExcelExclusionCertificado= Paths.get("src/test/resources/archivos","VL 10 - 1807 Exclusión.xlsx").toAbsolutePath().toString();
 
         if(tipoProductoDes.equals("INCLUSÍON")){
             ValorDinamico=rutaAbsolutarutaExcelEmision;
         }else if (tipoProductoDes.equals("EXCLUSIÓN")){
             ValorDinamico=rutaAbsolutarutaExcelExclusionCertificado;
+        }else {
+            throw new IllegalArgumentException("❌ Tipo de producto no reconocido: '" + tipoProductoDes + "'. Se esperaba 'INCLUSIÓN' o 'EXCLUSIÓN'.");
         }
 
 
@@ -138,7 +140,7 @@ public class InclusionExclusionCertificadoTask implements Task {
 
         if (continuarArhivo01.resolveFor(actor).isCurrentlyEnabled() && continuarArhivo01.resolveFor(actor).isCurrentlyVisible()){
             actor.attemptsTo(
-                    Pause.withDuration(100),
+                  //  Pause.withDuration(100),
                     Pause.withDuration(2),
                     WaitUntil.the(PlanillaDeAseguradosUI.BTN_CONTINUAR_CARGA_DE_ARCHIVO,isVisible()).forNoMoreThan(90).seconds(),
                     JavaScriptClick.on(PlanillaDeAseguradosUI.BTN_CONTINUAR_CARGA_DE_ARCHIVO),
@@ -151,7 +153,7 @@ public class InclusionExclusionCertificadoTask implements Task {
         }else if (continuarArhivo02.resolveFor(actor).isCurrentlyVisible() && continuarArhivo02.resolveFor(actor).isCurrentlyEnabled()){
 
             actor.attemptsTo(
-                    Pause.withDuration(100),
+                    //     Pause.withDuration(100),
                     Pause.withDuration(2),
                     WaitUntil.the(PlanillaDeAseguradosUI.BTN_CONTINUAR_CARGA_DE_ARCHIVO_2,isVisible()).forNoMoreThan(90).seconds(),
                     JavaScriptClick.on(PlanillaDeAseguradosUI.BTN_CONTINUAR_CARGA_DE_ARCHIVO_2),

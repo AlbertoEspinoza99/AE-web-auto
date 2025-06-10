@@ -138,6 +138,7 @@ public class AgregarSucursalTask implements Task {
                         WaitUntil.the(PATH_CARGANDO, WebElementStateMatchers.isNotVisible()).forNoMoreThan(300).seconds(),
                         WaitUntil.the(CARGANDO_ARCHIVO, WebElementStateMatchers.isNotVisible()).forNoMoreThan(300).seconds(),
                         // INICIO paso que han cambiado en sas proyecto
+                        /*
                         WaitUntil.the(BTN_CONTINUAR_ESTADO_INACTIVO, WebElementStateMatchers.isNotVisible()).forNoMoreThan(400).seconds(),
                         Pause.withDuration(1),
                         WaitUntil.the(BTN_CONTINUAR_ESTADO_INACTIVO, WebElementStateMatchers.isNotVisible()).forNoMoreThan(400).seconds(),
@@ -150,8 +151,9 @@ public class AgregarSucursalTask implements Task {
                         Click.on(ValidacionFinalUI.INPUT_ESTADO),
                         WaitUntil.the(ValidacionFinalUI.BTN_CONTINUAR, isVisible()).forNoMoreThan(30).seconds(),
                         JavaScriptClick.on(ValidacionFinalUI.BTN_CONTINUAR),
+                        */
                         // FIN paso que han cambiado en sas proyecto
-                        WaitUntil.the(ValidacionFinalUI.BTN_OK_CONFIRMACION_TRANSFERENCIA,isVisible()).forNoMoreThan(50).seconds(),
+                        WaitUntil.the(ValidacionFinalUI.BTN_OK_CONFIRMACION_TRANSFERENCIA,isVisible()).forNoMoreThan(400).seconds(),
                         JavaScriptClick.on(ValidacionFinalUI.BTN_OK_CONFIRMACION_TRANSFERENCIA),
                         Pause.withDuration(6),
                         WaitUntil.the(ValidacionFinalUI.DIV_VALIDACION_ESTADO,isVisible()).forNoMoreThan(20).seconds()

@@ -5,7 +5,7 @@ Feature: generacion poliza vida ley activo
   Background:
     Given ingreso a la aplicacion web de SAS
 
-  @Scenario17
+  @Scenario17 #@SASoci
   Scenario Outline:  generar cotizacion
     When estoy logeado e ingreso en la opción "Acuerdos" --> "Transacciones" --> "Emisión Vida Ley" --> "Registrar Cotización"
     And en la sección datos de cabecera se ingrese rol <rol> , Canal <canal> , Grupo <grupo>, Producto <producto>, Moneda <moneda>
@@ -18,9 +18,20 @@ Feature: generacion poliza vida ley activo
     Then valido que la poliza este en estado <generado>
     And validamos que la poliza en acsele en estado cotizada <cotizada>
 
-    Examples:
+    # ----> ompremice :
+     Examples:
       | rol        | canal            | grupo    | producto         | moneda       | TipoDocumento | NumeroDocumento | prima minima | TipoRiesgo | NumeroAsegurado | MontoPlanillaMensual | porAprobar | aprobada       | PolizaGenerada | generado |cotizada |
       | CORREDORES | SEGUROS DIRECTOS | VIDA LEY | Vida Ley Activos | NUEVOS SOLES | RUC           | 20288916528     | 2000         | Empleados  | 1               | 2000                 | POR APROBAR|    APROBADA    | GENERAR PÓLIZA | Generado | Cotizada|
+
+
+   # ----> OCI :
+   # Examples:
+     # | rol        | canal            | grupo    | producto         | moneda       | TipoDocumento | NumeroDocumento | prima minima | TipoRiesgo | NumeroAsegurado | MontoPlanillaMensual | porAprobar | aprobada       | PolizaGenerada | generado |cotizada |
+     # | CORREDORES | SEGUROS DIRECTOS | VIDA LEY | Vida Ley Activos | NUEVOS SOLES | RUC           | 20288916528     | 2000         | Empleados  | 1               | 2000                 | POR APROBAR|    APROBADA    | GENERAR PÓLIZA | Generado | Cotizada|
+
+
+
+
 
   @Scenario18
   Scenario Outline: emision poliza

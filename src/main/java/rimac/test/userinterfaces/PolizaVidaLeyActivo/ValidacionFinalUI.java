@@ -20,7 +20,7 @@ public class ValidacionFinalUI {
             .located(By.xpath("(//table[@class='x-btn x-btn-text-icon']//button[.='Continuar'])"));
 
     public static final Target BTN_OK_CONFIRMACION_TRANSFERENCIA=Target.the("BTN_OK_CONFIRMACION_TRANSFERENCIA")
-            .located(By.xpath("(//button[.='Aceptar'])"));
+            .located(By.xpath("//span[contains(text(),'Confirmación')]/ancestor::div[5]/div[2]//button[.='Aceptar']"));
 
 
     public static final Target DIV_VALIDACION_ESTADO=Target.the("DIV_VALIDACION_ESTADO")
