@@ -42,6 +42,23 @@ public class PolizaVidaLeyCesante {
     }
 
 
+    @And("^renovamos condiciones de la poliza del producto (.*) con estadoInicial (.*) y colocamos el tipo de vigencia (.*)$")
+    public void renovacionCondiciones(String producto,String estadoInicial,String vigencia){
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
