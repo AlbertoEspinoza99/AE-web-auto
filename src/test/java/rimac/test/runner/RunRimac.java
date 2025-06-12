@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/",
         glue = "rimac.test.stepsdefinition",
         // @Scenario9y10 xx , @Scenario14y15 , @Scenario17y18 , @Scenario22
-        tags = "@Scenario3",
+        tags = "@Scenario14y15",
         snippets = SnippetType.CAMELCASE
 )
 

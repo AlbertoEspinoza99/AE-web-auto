@@ -32,6 +32,10 @@ public class DatosParticularessUI {
     public static final Target BTN_MENSAJE_CONFIRMACION = Target.the("BTN_MENSAJE_CONFIRMACION")
             .located(By.xpath("//button[.='Aceptar']"));
 
+    public static final Target INPUT_SEGMENTO=Target.the("INPUT_SEGMENTO")
+            .located(By.xpath("//input[@name='idesegmento']/parent::div/input[2]"));
+
+    public static final String DINAMICO_SEGMENTO="//div[contains(text(),'{0}')]";
 
 
 }

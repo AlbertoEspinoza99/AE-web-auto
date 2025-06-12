@@ -20,16 +20,18 @@ public class DatosParticularesTask implements Task {
     private final String PrimaMinEmision;
     private final String PrimaMinEndoso;
     private final String SueldoAsegurable;
+    private final String segmento;
 
-    public DatosParticularesTask(String tipoVigencia, String primaMinEmision, String primaMinEndoso, String sueldoAsegurable) {
+    public DatosParticularesTask(String tipoVigencia, String primaMinEmision, String primaMinEndoso, String sueldoAsegurable, String segmento) {
         this.tipoVigencia = tipoVigencia;
         PrimaMinEmision = primaMinEmision;
         PrimaMinEndoso = primaMinEndoso;
         SueldoAsegurable = sueldoAsegurable;
+        this.segmento = segmento;
     }
 
-    public static DatosParticularesTask DT(String tipoVigencia, String primaMinEmision, String primaMinEndoso, String sueldoAsegurable){
-        return Instrumented.instanceOf(DatosParticularesTask.class).withProperties(tipoVigencia,primaMinEmision,primaMinEndoso,sueldoAsegurable);
+    public static DatosParticularesTask DT(String tipoVigencia, String primaMinEmision, String primaMinEndoso, String sueldoAsegurable,String segmento){
+        return Instrumented.instanceOf(DatosParticularesTask.class).withProperties(tipoVigencia,primaMinEmision,primaMinEndoso,sueldoAsegurable,segmento);
     }
 
     @Override
@@ -43,6 +45,12 @@ public class DatosParticularesTask implements Task {
                 Pause.withDuration(2),
                 ClickDinamico.clickDinamicos(DatosParticularessUI.DINAMICO_TIPO_VIGENCIA,tipoVigencia),
                 Pause.withDuration(1),
+                //NUEVO
+                WaitUntil.the(DatosParticularessUI.INPUT_SEGMENTO,isVisible()).forNoMoreThan(60).seconds(),
+                Enter.theValue(segmento).into(DatosParticularessUI.INPUT_SEGMENTO),
+                Pause.withDuration(2),
+                ClickDinamico.clickDinamicos(DatosParticularessUI.DINAMICO_SEGMENTO,segmento),
+
                 WaitUntil.the(DatosParticularessUI.INPUT_PRIMA_MINIMA_EMISION,isVisible()).forNoMoreThan(60).seconds(),
                 Enter.theValue(PrimaMinEmision).into(DatosParticularessUI.INPUT_PRIMA_MINIMA_EMISION),
                 Pause.withDuration(1),

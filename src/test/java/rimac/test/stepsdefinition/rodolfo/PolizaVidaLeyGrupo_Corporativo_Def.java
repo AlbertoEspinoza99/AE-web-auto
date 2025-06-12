@@ -21,11 +21,11 @@ public class PolizaVidaLeyGrupo_Corporativo_Def {
     }
 
 
-    @And("^registramos los datos particulares y ingresamos tipoVigencia (.*),PrimaMinEmision (.*),PrimaMinEndoso (.*),SueldoAsegurable (.*)$")
-    public void datosParticulares(String tipoVigencia,String PrimaMinEmision,String PrimaMinEndoso,String SueldoAsegurable){
+    @And("^registramos los datos particulares y ingresamos tipoVigencia (.*),PrimaMinEmision (.*),PrimaMinEndoso (.*),SueldoAsegurable (.*),segmento (.*)$")
+    public void datosParticulares(String tipoVigencia,String PrimaMinEmision,String PrimaMinEndoso,String SueldoAsegurable,String segmento){
 
         actor.attemptsTo(
-                DatosParticularesTask.DT(tipoVigencia,PrimaMinEmision,PrimaMinEndoso,SueldoAsegurable)
+                DatosParticularesTask.DT(tipoVigencia,PrimaMinEmision,PrimaMinEndoso,SueldoAsegurable,segmento)
         );
     }
 
