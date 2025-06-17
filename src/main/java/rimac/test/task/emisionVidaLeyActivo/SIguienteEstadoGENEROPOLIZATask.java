@@ -64,29 +64,63 @@ public class SIguienteEstadoGENEROPOLIZATask implements Task {
         actor.attemptsTo(
                 WaitUntil.the(SiguienteEstadoUI.BTN_CONFIRMAR_VISUALIZACION_DE_POLIZA,isVisible()).forNoMoreThan(60).seconds(),
                 Pause.withDuration(2),
-                JavaScriptClick.on(SiguienteEstadoUI.BTN_CONFIRMAR_VISUALIZACION_DE_POLIZA),
-                WaitUntil.the(SiguienteEstadoUI.INPUT_NUMERO_POLIZA,isVisible()).forNoMoreThan(60).seconds(),
-                Pause.withDuration(3)
-
+                JavaScriptClick.on(SiguienteEstadoUI.BTN_CONFIRMAR_VISUALIZACION_DE_POLIZA)
         );
 
-                        String poliza=actor.asksFor(ObtenerValorPorAtributo.del(INPUT_NUMERO_POLIZA_VALIDACION, "value"));
+        Target input_poliza_original=SiguienteEstadoUI.INPUT_NUMERO_POLIZA;
+        Target input_poliza_ley_Cesante=SiguienteEstadoUI.INPUT_NUMERO_POLIZA_LEY_CESANTE;
 
-                        String NumeroPoliza =poliza;
-                        JSONObject datos = new JSONObject();
-                        datos.put("NumeroPoliza", NumeroPoliza);
+        if (input_poliza_original.resolveFor(actor).isCurrentlyVisible() && input_poliza_original.resolveFor(actor).isCurrentlyEnabled()){
 
-                        escribirJson(datos, "PolizaVidaLeyActivo");
-                        String nroPoliza = UtilApp.getJsonValue("src/test/resources/jsonData/PolizaVidaLeyActivo.json","$['NumeroPoliza']");
+            actor.attemptsTo(
+                    WaitUntil.the(SiguienteEstadoUI.INPUT_NUMERO_POLIZA,isVisible()).forNoMoreThan(60).seconds(),
+                    Pause.withDuration(3)
+            );
+            String poliza=actor.asksFor(ObtenerValorPorAtributo.del(SiguienteEstadoUI.INPUT_NUMERO_POLIZA, "value"));
+
+            String NumeroPoliza =poliza;
+            JSONObject datos = new JSONObject();
+            datos.put("NumeroPoliza", NumeroPoliza);
+
+            escribirJson(datos, "PolizaVidaLeyActivo");
+
+        }else if (input_poliza_ley_Cesante.resolveFor(actor).isCurrentlyVisible() && input_poliza_ley_Cesante.resolveFor(actor).isCurrentlyEnabled()){
+            actor.attemptsTo(
+                    WaitUntil.the(SiguienteEstadoUI.INPUT_NUMERO_POLIZA_LEY_CESANTE,isVisible()).forNoMoreThan(60).seconds(),
+                    Pause.withDuration(3)
+            );
+
+            String poliza=actor.asksFor(ObtenerValorPorAtributo.del(SiguienteEstadoUI.INPUT_NUMERO_POLIZA_LEY_CESANTE, "value"));
+
+            String NumeroPoliza =poliza;
+            JSONObject datos = new JSONObject();
+            datos.put("NumeroPoliza", NumeroPoliza);
+
+            escribirJson(datos, "PolizaVidaLeyActivo");
+        }
 
 
-                        actor.attemptsTo(
-                               // PegadoJS.pegar(INPUT_NUMERO_POLIZA_VALIDACION,NumeroPoliza),
-                                Pause.withDuration(1),
-                                JavaScriptClick.on(SiguienteEstadoUI.BTN_BUSCAR_VALIDACION),
-                                WaitUntil.the(PATH_CARGANDO, WebElementStateMatchers.isNotVisible()).forNoMoreThan(400).seconds(),
-                                Pause.withDuration(1)
-                                );
+
+
+                        Target buscar_original=SiguienteEstadoUI.BTN_BUSCAR_VALIDACION;
+                        Target buscar_ley_cesante=SiguienteEstadoUI.BTN_BUSCAR_VALIDACION_LEY_CESANTE;
+
+                        if (buscar_original.resolveFor(actor).isCurrentlyEnabled() && buscar_original.resolveFor(actor).isCurrentlyVisible()){
+                            actor.attemptsTo(
+                                    Pause.withDuration(1),
+                                    JavaScriptClick.on(SiguienteEstadoUI.BTN_BUSCAR_VALIDACION),
+                                    WaitUntil.the(PATH_CARGANDO, WebElementStateMatchers.isNotVisible()).forNoMoreThan(400).seconds(),
+                                    Pause.withDuration(1)
+                            );
+                        }else if(buscar_ley_cesante.resolveFor(actor).isCurrentlyEnabled() && buscar_ley_cesante.resolveFor(actor).isCurrentlyVisible()){
+                            actor.attemptsTo(
+                                    Pause.withDuration(1),
+                                    JavaScriptClick.on(SiguienteEstadoUI.BTN_BUSCAR_VALIDACION_LEY_CESANTE),
+                                    WaitUntil.the(PATH_CARGANDO, WebElementStateMatchers.isNotVisible()).forNoMoreThan(400).seconds(),
+                                    Pause.withDuration(1)
+                            );
+                        }
+
 
 
 

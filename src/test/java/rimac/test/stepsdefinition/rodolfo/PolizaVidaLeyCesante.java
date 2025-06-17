@@ -1,10 +1,13 @@
 package rimac.test.stepsdefinition.rodolfo;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 import net.serenitybdd.screenplay.GivenWhenThen;
+import rimac.test.questions.polizaVidaLeyCesante.EstadoCotizacion;
 import rimac.test.questions.polizaVidaLeyCesante.TransferenciaOK;
 import rimac.test.task.emisionVidaLeyCesante.ContinuidadyDtosParticulares;
 import rimac.test.task.emisionVidaLeyCesante.PlanCoberturas_vidaLeyCesante;
+import rimac.test.task.emisionVidaLeyCesante.RenovarCondicionesTask;
 
 import static com.google.common.base.Predicates.equalTo;
 import static rimac.test.stepsdefinition.hooks.Hooks.actor;
@@ -42,10 +45,22 @@ public class PolizaVidaLeyCesante {
     }
 
 
-    @And("^renovamos condiciones de la poliza del producto (.*) con estadoInicial (.*) y colocamos el tipo de vigencia (.*)$")
-    public void renovacionCondiciones(String producto,String estadoInicial,String vigencia){
+    @And("^renovamos condiciones de la poliza del producto (.*) con estadoInicial (.*)$")
+    public void renovacionCondiciones(String producto,String estadoInicial){
+
+        actor.attemptsTo(
+                RenovarCondicionesTask.renovar(producto,estadoInicial)
+        );
+
+    }
 
 
+    @Then("^valido que la poliza con su  numero de cotizacion y con estado (.*)$")
+    public void ValidamosElEstadoDelaPoliza(String estado){
+      actor.should(
+              GivenWhenThen.seeThat("validacion estado",
+                      EstadoCotizacion.validacion(estado),equalTo(true))
+      );
     }
 
 

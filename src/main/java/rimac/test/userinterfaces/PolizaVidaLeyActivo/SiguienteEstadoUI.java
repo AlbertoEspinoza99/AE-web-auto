@@ -54,6 +54,14 @@ public class SiguienteEstadoUI {
             .located(By.xpath("(//button[.='Grabar'])[3]"));
 
 
+    public static final Target BTN_BUSCAR_VALIDACION_LEY_CESANTE=Target.the("BTN_BUSCAR_VALIDACION_LEY_CESANTE")
+            .located(By.xpath("(//button[.='Buscar'])[2]"));
+
+
+    public static final Target INPUT_NUMERO_POLIZA_LEY_CESANTE =Target.the("INPUT_NUMERO_POLIZA_LEY_CESANTE")
+            .located(By.xpath("(//input[@name='numero'])[2]"));
+
+
 
 
 }
